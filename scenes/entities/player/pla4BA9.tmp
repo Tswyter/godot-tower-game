@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvve7gyyla06c"]
+
+[ext_resource type="Texture2D" uid="uid://cipjt5n4dfvrc" path="res://assets/Diamond/Sprite-0001.png" id="1_65h2b"]
+[ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_ukryb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tvk0i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_25dut"]
+radius = 182.102
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ukryb")
+
+[node name="PlayerCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tvk0i")
+
+[node name="PlayerBody" type="Sprite2D" parent="."]
+texture = ExtResource("1_65h2b")
+
+[node name="AttackRadius" type="Area2D" parent="."]
+
+[node name="AttackCollider" type="CollisionShape2D" parent="AttackRadius"]
+shape = SubResource("CircleShape2D_25dut")
