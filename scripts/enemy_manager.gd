@@ -5,9 +5,12 @@ extends Node
 var enemies := []
 
 func spawn_enemy():
-	var enemy = enemy_scene.instantiate()
-	enemy.position = Utilities.get_position_outside_viewport(40)
-	add_child(enemy)
+	if GameManager.current_state == GameManager.State.PLAY:
+		var enemy = enemy_scene.instantiate()
+		enemy.position = Utilities.get_position_outside_viewport(40)
+		add_child(enemy)
+	else:
+		pass
 
 func erase_enemy_from_array(enemy):
 	enemies.erase(enemy)
@@ -15,12 +18,14 @@ func erase_enemy_from_array(enemy):
 	
 func add_enemy_to_array(enemy):
 	enemies.append(enemy)
-
-func list_number_of_enemies():
-	print(enemies.size())
 	
 func reorder_enemies_by_distance():
 	if enemies.size() > 0 and is_instance_valid(enemies[0]):
 		enemies.sort_custom(func (a, b):
-			return a.global_position.distance_to(PlayerManager.player.position) < b.global_position.distance_to(PlayerManager.player.position)
+			return a.global_position.distance_to(PlayerManager.player.global_position) < b.global_position.distance_to(PlayerManager.player.global_position)
 		)
+
+func clear_enemies():
+	for enemy in enemies:
+		if is_instance_valid(enemy):
+			enemy.queue_free()
