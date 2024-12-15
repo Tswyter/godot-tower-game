@@ -9,6 +9,8 @@ var is_targeted := false
 
 func _ready():
 	EnemyManager.add_enemy_to_array(self)
+	health *= float(WaveManager.current_wave / 2)
+	print(health)
 
 func _process(delta):
 	move_to_player(delta)
@@ -20,14 +22,17 @@ func move_to_player(delta):
 	look_at(target_position)
 	global_position = global_position.move_toward(target_position, speed * delta)
 	if global_position == target_position:
-		take_damage(10.0)
+		PlayerManager.take_damage(10.0)
 	
 func take_damage(damage: float):
 	health -= damage
 	if health <= 0.0:
 		die()
 		
+func damage_player(damage: float):
+	PlayerManager.take_damage(damage)
+		
 func die():
-	PlayerManager.add_resource('upgrades', resource_value)
+	PlayerManager.add_resource(resource_value)
 	EnemyManager.erase_enemy_from_array(self)
 		
