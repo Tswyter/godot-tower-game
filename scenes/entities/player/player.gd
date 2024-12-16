@@ -54,7 +54,6 @@ func _on_attack_radius_body_exited(body):
 		body.is_targeted = false
 
 func begin_shooting(enemy_position):
-	print('shooting')
 	var projectile = projectile_scene.instantiate()
 	projectile.top_level = true
 	add_child(projectile)
