@@ -22,12 +22,10 @@ script = ExtResource("1_ukryb")
 joystick = NodePath("UI/Virtual Joystick")
 
 [node name="AttackRadius" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 0
+collision_mask = 2
 
-[node name="AttackCollider" type="CollisionShape2D" parent="AttackRadius"]
+[node name="AttackCollider" type="CollisionShape2D" parent="AttackRadius" groups=["attack_range"]]
 shape = SubResource("CircleShape2D_25dut")
-disabled = true
 
 [node name="Panel" type="Panel" parent="AttackRadius"]
 offset_left = -180.0
@@ -63,10 +61,9 @@ texture = null
 [node name="Tip" parent="UI/Virtual Joystick/Base" index="0"]
 texture = null
 
-[connection signal="area_entered" from="AttackRadius" to="." method="_on_attack_radius_area_entered"]
+[node name="ProjectileContainer" type="Node" parent="."]
+
 [connection signal="body_entered" from="AttackRadius" to="." method="_on_attack_radius_body_entered"]
 [connection signal="body_exited" from="AttackRadius" to="." method="_on_attack_radius_body_exited"]
-[connection signal="body_shape_entered" from="AttackRadius" to="." method="_on_attack_radius_body_shape_entered"]
-[connection signal="body_shape_exited" from="AttackRadius" to="." method="_on_attack_radius_body_shape_exited"]
 
 [editable path="UI/Virtual Joystick"]

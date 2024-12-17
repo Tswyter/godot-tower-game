@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://bee8n6rr2eys0"]
+
+[ext_resource type="Script" path="res://scenes/game_state/game_over.gd" id="1_6td5f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrirl"]
+bg_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
+
+[sub_resource type="Theme" id="Theme_7n8y1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fjjx"]
+bg_color = Color(0.428869, 0.829981, 0.950368, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_om0dn"]
+bg_color = Color(0.121569, 0.45098, 0.541176, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tik0o"]
+bg_color = Color(0.208831, 0.66078, 0.781862, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6td5f")
+metadata/_edit_vertical_guides_ = [361.0]
+metadata/_edit_horizontal_guides_ = [316.0]
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -6.0
+offset_right = 736.0
+offset_bottom = 1297.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jrirl")
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 480.0
+offset_right = 478.0
+offset_bottom = 568.0
+focus_mode = 0
+theme = SubResource("Theme_7n8y1")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 51
+theme_override_styles/hover = SubResource("StyleBoxFlat_7fjjx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_om0dn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tik0o")
+text = "Restart"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 170.0
+offset_right = 720.0
+offset_bottom = 381.0
+theme_override_font_sizes/font_size = 91
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
