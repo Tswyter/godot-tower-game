@@ -61,6 +61,8 @@ texture = null
 [node name="Tip" parent="UI/Virtual Joystick/Base" index="0"]
 texture = null
 
+[node name="ProjectileContainer" type="Node" parent="."]
+
 [connection signal="body_entered" from="AttackRadius" to="." method="_on_attack_radius_body_entered"]
 [connection signal="body_exited" from="AttackRadius" to="." method="_on_attack_radius_body_exited"]
 

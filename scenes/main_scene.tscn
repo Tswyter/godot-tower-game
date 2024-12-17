@@ -1,12 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b5dqt7sqctf1n"]
 
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_pdr7c"]
+[ext_resource type="Script" path="res://scenes/main_scene.gd" id="1_y126d"]
 
 [node name="MainScene" type="Node2D"]
-script = ExtResource("1_pdr7c")
-
-[node name="Panel" type="Panel" parent="."]
-offset_left = -11.0
-offset_top = -10.0
-offset_right = 732.0
-offset_bottom = 1290.0
+script = ExtResource("1_y126d")

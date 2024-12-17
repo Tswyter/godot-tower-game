@@ -3,6 +3,9 @@ extends Node
 @onready var viewport_size = GameManager.viewport_size
 @onready var rng = GameManager.rng
 
+func detect_position_outside_viewport(position: Vector2) -> bool:
+	return position.x < 0 or position.x > viewport_size.x or position.y < 0 or position.y > viewport_size.y
+
 func get_position_outside_viewport(margin: float = 50) -> Vector2:
 	var min_x = -margin
 	var max_x = viewport_size.x + margin
